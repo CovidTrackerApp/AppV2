@@ -12,6 +12,8 @@ import 'dart:io';
 import 'dart:math';
 import 'dart:convert';
 
+import 'package:country_code_picker/country_code_picker.dart';
+
 
 import 'package:email_validator/email_validator.dart';
 
@@ -44,14 +46,16 @@ class RegForm extends StatefulWidget {
 }
 
 class _RegFormState extends State<RegForm> {
+  String _countrycoder="";
   final _minpad = 5.0;
   var _noter=0;
   var _currentCat = 'Male';
   double _loady = 0.0;
-  var _currentStat = 'Healthy';
+  var _currentStat = 'Normal';
+
   // var _cat = ['Citizen', 'Health Personal', 'Policy Maker'];
   var _cat = ['Male', 'Female'];
-  var _stat = ['Healthy', 'Exposed', 'Infected'];
+  var _stat = ['Normal', 'Exposed', 'Infected'];
   final myController_username = TextEditingController();
   final myController_password = TextEditingController();
   final myController_phonenumber = TextEditingController();
@@ -163,6 +167,7 @@ class _RegFormState extends State<RegForm> {
     write_public_Dat(dio, imgUrl, fullPath, dataa);
   }
 
+
   //***************************************************************
   @override
   Widget build(BuildContext context) {
@@ -237,6 +242,18 @@ class _RegFormState extends State<RegForm> {
                                   borderRadius: BorderRadius.circular(5.0))),
                         )),
                   ),
+
+        SizedBox(
+          width: 100,
+                        child: TextField(
+                          controller: myController_age,
+                          keyboardType: TextInputType.number,
+                          decoration: InputDecoration(
+                              labelText: 'Age',
+                              hintText: 'XX',
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0))),
+                        ))
                 ],
               )),
           // Padding(
@@ -301,7 +318,23 @@ class _RegFormState extends State<RegForm> {
                   top: _minpad, bottom: _minpad, left: _minpad, right: _minpad),
               child: Row(
                 children: <Widget>[
+                  CountryCodePicker(
+                    onChanged: print,
+                    // Initial selection and favorite can be one of code ('IT') OR dial_code('+39')
+                    initialSelection: 'KR',
+                    favorite: ['+39', 'FR'],
+                    // countryFilter: ['IT', 'FR'],
+                    showFlagDialog: false,
+                    comparator: (a, b) => b.name.compareTo(a.name),
+                    //Get the country information relevant to the initial selection
+                    onInit: (code) {
+                      print("on init ${code.name} ${code.dialCode} ${code.name}");
+                        _countrycoder=code.dialCode.toString();
+
+                    },
+                  ),
                   Expanded(
+                    //******************&&&&&&&&&&&&&&&&&&&&&&&&&&&&***************************
                     child: Container(
                         padding: EdgeInsets.only(top: _minpad, bottom: _minpad),
                         child: TextField(
@@ -309,11 +342,12 @@ class _RegFormState extends State<RegForm> {
                           keyboardType: TextInputType.phone,
                           decoration: InputDecoration(
                               labelText: 'Phone Number',
-                              hintText: '(+Country Code)(Phone Number))',
+                              hintText: 'e.g. 1237576894',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(5.0))),
                         )),
                   ),
+                  //*****************&&&&&&&&&&&&&&&&&&&&&&&&&*************************************
 
                   // Container(
                   //   width: _minpad * 0.1,
@@ -321,20 +355,22 @@ class _RegFormState extends State<RegForm> {
                   // Container(
                   //     width: _minpad*20,
                   //     child:
-                  Expanded(
-                    child: Container(
-                        padding: EdgeInsets.only(
-                            top: _minpad, bottom: _minpad, left: _minpad * 6),
-                        child: TextField(
-                          controller: myController_age,
-                          keyboardType: TextInputType.number,
-                          decoration: InputDecoration(
-                              labelText: 'Age',
-                              hintText: 'XX',
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(5.0))),
-                        )),
-                  )
+                  //88888888888888888888888888888888888888888888888888888888888888888
+                  // Expanded(
+                  //   child: Container(
+                  //       padding: EdgeInsets.only(
+                  //           top: _minpad, bottom: _minpad, left: _minpad * 6),
+                  //       child: TextField(
+                  //         controller: myController_age,
+                  //         keyboardType: TextInputType.number,
+                  //         decoration: InputDecoration(
+                  //             labelText: 'Age',
+                  //             hintText: 'XX',
+                  //             border: OutlineInputBorder(
+                  //                 borderRadius: BorderRadius.circular(5.0))),
+                  //       )),
+                  // )
+                  //88888888888888888888888888888888888888888888888888888888888888
                 ],
               )),
           Padding(
@@ -485,21 +521,34 @@ class _RegFormState extends State<RegForm> {
                     print("Junaid, I generated this UUID:");
                     print(myuuid);
 
+                    String phony=_countrycoder.toString()+myController_phonenumber.text;
+                    print("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+                    print(phony);
+
                     if (dd == 0) {
                     if(_noter==1)
                     {
                       showAlertDialog4(context);
                     }
+
                     if(myController_username.text.contains(' '))
                       {
                         showAlertDialog5(context);
+                      }
+                    if(myController_fullname.text.contains(new RegExp(r'[0-9_\-=@,/.;]')))
+                      {
+                        showAlertDialog6(context);
+                      }
+                    if(myController_phonenumber.text.length!=10)
+                      {
+                        showAlertDialog7(context);
                       }
 
                       final signup_response = await signup(
                           myController_username.text,
                           myController_password.text,
                           myController_fullname.text,
-                          myController_phonenumber.text,
+                          phony,
                           myController_email.text,
                           myController_age.text,
                           _currentCat,
@@ -798,7 +847,8 @@ showAlertDialog4(BuildContext context) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Error"),
+    title: Text("Error",
+      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
     content: Text("Please Enter a Valid Email Address"),
     actions: [
       new FlatButton(
@@ -836,8 +886,88 @@ showAlertDialog5(BuildContext context) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Error"),
+    title: Text("Error",
+      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
     content: Text("There must be no space in Username"),
+    actions: [
+      new FlatButton(
+        child: new Text('OK'),
+        onPressed: () {
+
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) {
+
+                return RegForm();
+              }));
+          Navigator.of(context, rootNavigator: true).pop('dialog');
+        },
+      )
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+
+showAlertDialog6(BuildContext context) {
+  // Create button
+  // Widget okButton = FlatButton(
+  //   child: Text("OK"),
+  //   onPressed: () {
+  //     Navigator.of(context).pop();
+  //   },
+  // );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Error",
+        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+    ),
+    content: Text("Full Name must only contain alphabets"),
+    actions: [
+      new FlatButton(
+        child: new Text('OK'),
+        onPressed: () {
+
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) {
+
+                return RegForm();
+              }));
+          Navigator.of(context, rootNavigator: true).pop('dialog');
+        },
+      )
+    ],
+  );
+
+  // show the dialog
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return alert;
+    },
+  );
+}
+showAlertDialog7(BuildContext context) {
+  // Create button
+  // Widget okButton = FlatButton(
+  //   child: Text("OK"),
+  //   onPressed: () {
+  //     Navigator.of(context).pop();
+  //   },
+  // );
+
+  // Create AlertDialog
+  AlertDialog alert = AlertDialog(
+    title: Text("Error",
+      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+    ),
+    content: Text("Phone Number must be 10 digits long"),
     actions: [
       new FlatButton(
         child: new Text('OK'),

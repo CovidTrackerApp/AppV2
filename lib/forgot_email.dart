@@ -341,7 +341,8 @@ showAlertDialog4(BuildContext context) {
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Error"),
+    title: Text("Error",
+      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
     content: Text("Please Enter a Valid Email Address"),
     actions: [
       new FlatButton(

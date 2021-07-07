@@ -25,6 +25,8 @@ dependencies:
   android_alarm_manager: any
   hive:
   email_validator: ^2.0.1
+  country_code_picker: ^2.0.2
+  bluetooth_enable: ^0.1.1
   hive_flutter: ^0.2.1
   baseflow_plugin_template:
     git:

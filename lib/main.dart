@@ -46,6 +46,8 @@ import 'package:android_alarm_manager/android_alarm_manager.dart';
 
 import 'package:connectivity/connectivity.dart';
 
+import 'package:bluetooth_enable/bluetooth_enable.dart';
+
 final imgUrl =
     "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/csv/dummy.csv";
 
@@ -141,6 +143,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+
+  Future<void> enableBT() async {
+    BluetoothEnable.enableBluetooth.then((value) {
+      print(value);
+    });
+  }
+
+
+
+
+
   //Transmitter
   final int _AlarmID = 0;
   final int _AlarmID1 = 1;
@@ -686,7 +700,15 @@ class _MyHomePageState extends State<MyHomePage> {
 
             centerTitle: true,
             backgroundColor: Colors.blue[200],
-            actions: [
+            actions: [IconButton(
+              icon: Icon(
+                Icons.settings,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                // do something
+              },
+            ),
               PopupMenuButton(
                 icon: Icon(Icons.more_vert),
                 itemBuilder: (BuildContext context) => <PopupMenuEntry>[
@@ -696,6 +718,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         title: Text('수동 데이터 업로드'),
                       ),
                       value: "/dataupload"),
+                  const PopupMenuItem(
+                      child: ListTile(
+                        leading: Icon(Icons.bluetooth),
+                        title: Text('수동 데이터 업로드'),
+                      ),
+                      value: "/btchecky"),
                 ],
                 onSelected: (value) async {
                   //*************************************************************
@@ -718,6 +746,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     print("Path of file to be uploaded:   " + fullPath);
                     bt_data_upload(fullPath);
                   } else if (value == '/logout') {}
+                  else if(value=='/btchecky')
+                    {
+                      enableBT();
+                    }
                 },
               ),
             ],

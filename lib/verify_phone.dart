@@ -249,28 +249,30 @@ writeToken(String text) async {
 }
 
 showAlertDialog(BuildContext context, uuname) {
+
+
   // Create button
-  Widget okButton = FlatButton(
-    child: Text("OK"),
-    onPressed: () {
-      Navigator.of(context).pop();
-    },
-  );
+  // Widget okButton = FlatButton(
+  //   child: Text("OK"),
+  //   onPressed: () {
+  //     Navigator.of(context).pop();
+  //   },
+  // );
 
   // Create AlertDialog
   AlertDialog alert = AlertDialog(
-    title: Text("Alert"),
+    title: Text("Error",
+      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
     content: Text("OTP is not correct"),
     actions: [
       new FlatButton(
         child: new Text('OK'),
         onPressed: () {
-          //Navigator.of(context).pop();
-          // Navigator.push(context,
           Navigator.push(context, new MaterialPageRoute(builder: (context) {
             return VerifyForm(uname: uuname);
           }));
-          return;
+          Navigator.of(context, rootNavigator: true).pop('dialog');
+
         },
       )
     ],

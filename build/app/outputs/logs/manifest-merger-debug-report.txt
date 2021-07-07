@@ -12,6 +12,7 @@ MERGED from [:flutter_bluetooth_serial] D:\Android_Studio_Projects\Contact_track
 MERGED from [:google_maps_flutter] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\google_maps_flutter\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
 MERGED from [:flutter_local_notifications] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [:flutter_barcode_scanner] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-21:12
+MERGED from [:bluetooth_enable] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\bluetooth_enable\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-6:12
 MERGED from [:flutter_background_service] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_background_service\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-22:12
 MERGED from [:connectivity] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:permission_handler] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\permission_handler\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-7:12
@@ -352,6 +353,8 @@ MERGED from [:flutter_local_notifications] D:\Android_Studio_Projects\Contact_tr
 MERGED from [:flutter_local_notifications] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_local_notifications\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_barcode_scanner] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:flutter_barcode_scanner] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_barcode_scanner\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:bluetooth_enable] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\bluetooth_enable\intermediates\library_manifest\debug\AndroidManifest.xml:4:5-44
+MERGED from [:bluetooth_enable] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\bluetooth_enable\intermediates\library_manifest\debug\AndroidManifest.xml:4:5-44
 MERGED from [:flutter_background_service] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_background_service\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:flutter_background_service] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\flutter_background_service\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44
 MERGED from [:connectivity] D:\Android_Studio_Projects\Contact_tracking_KS_Project_Mobile_APP\build\connectivity\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-44

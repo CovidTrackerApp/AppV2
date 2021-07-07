@@ -1,4 +1,4 @@
-#Wed Jul 07 17:28:10 KST 2021
+#Thu Jul 08 04:02:56 KST 2021
 path.4=classes_1.dex
 path.3=classes_0.dex
 path.2=classes2.dex
@@ -19,6 +19,7 @@ base.8=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\bui
 base.7=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_12.dex
 base.6=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_11.dex
 base.5=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_10.dex
+renamed.28=classes29.dex
 renamed.27=classes28.dex
 renamed.26=classes27.dex
 renamed.25=classes26.dex
@@ -26,6 +27,7 @@ renamed.24=classes25.dex
 renamed.23=classes24.dex
 renamed.22=classes23.dex
 renamed.21=classes22.dex
+base.28=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_25.dex
 renamed.20=classes21.dex
 base.27=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_9.dex
 base.26=D\:\\Android_Studio_Projects\\Contact_tracking_KS_Project_Mobile_APP\\build\\app\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_8.dex
@@ -81,5 +83,6 @@ path.24=classes_6.dex
 path.21=classes_3.dex
 path.22=classes_4.dex
 path.27=classes_9.dex
+path.28=classes_25.dex
 path.25=classes_7.dex
 path.26=classes_8.dex
